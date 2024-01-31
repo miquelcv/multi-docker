@@ -13,15 +13,15 @@ jobs:
       - run: docker build -t kelillus/react-test -f ./client/Dockerfile.dev ./client
       - run: docker run -e CI=true kelillus/react-test npm test
  
-      - run: docker build -t kelillus/multi-client-10-14 ./client
-      - run: docker build -t kelillus/multi-nginx-10-14 ./nginx
-      - run: docker build -t kelillus/multi-server-10-14 ./server
-      - run: docker build -t kelillus/multi-worker-10-14 ./worker
+      - run: docker build -t kelillus/multi-client ./client
+      - run: docker build -t kelillus/multi-nginx ./nginx
+      - run: docker build -t kelillus/multi-server ./server
+      - run: docker build -t kelillus/multi-worker ./worker
  
-      - run: docker push kelillus/multi-client-10-14
-      - run: docker push kelillus/multi-nginx-10-14
-      - run: docker push kelillus/multi-server-10-14
-      - run: docker push kelillus/multi-worker-10-14
+      - run: docker push kelillus/multi-client
+      - run: docker push kelillus/multi-nginx
+      - run: docker push kelillus/multi-server
+      - run: docker push kelillus/multi-worker
  
       - name: Generate deployment package
         run: zip -r deploy.zip . -x '*.git*'
